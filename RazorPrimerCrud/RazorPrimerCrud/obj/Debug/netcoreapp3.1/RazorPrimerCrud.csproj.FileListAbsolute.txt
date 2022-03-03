@@ -744,3 +744,4 @@ C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\RazorPrimerCrud\RazorPrimerC
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\RazorPrimerCrud\RazorPrimerCrud\obj\Debug\netcoreapp3.1\RazorPrimerCrud.pdb
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\RazorPrimerCrud\RazorPrimerCrud\obj\Debug\netcoreapp3.1\RazorPrimerCrud.genruntimeconfig.cache
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\RazorPrimerCrud\RazorPrimerCrud\obj\Debug\netcoreapp3.1\Razor\Pages\BookList\Create.cshtml.g.cs
+C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\RazorPrimerCrud\RazorPrimerCrud\obj\Debug\netcoreapp3.1\Razor\Pages\BookList\Edit.cshtml.g.cs
