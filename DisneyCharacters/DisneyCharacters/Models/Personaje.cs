@@ -16,6 +16,7 @@ namespace DisneyCharacters.Models
         public int Edad { get; set; }
         public float Peso { get; set; }
         public string Historia { get; set; }
-        public List<Pelicula> ListaPeliculas { get; set; }
+        public virtual List<PersonajePelicula> PersonajesPelicula { get; set; }
+
     }
 }

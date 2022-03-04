@@ -15,9 +15,9 @@ namespace DisneyCharacters.Models
         public string Imagen { get; set; }
         public DateTime Fecha { get; set; }
         public int Calificacion { get; set; }
-        public Genero Genero { get; set; }
-        public List<Personaje> Personajes { get; set; }
+        public virtual Genero Genero { get; set; }
 
+        public virtual List<PersonajePelicula> PersonajesPelicula { get; set; }
 
     }
 }

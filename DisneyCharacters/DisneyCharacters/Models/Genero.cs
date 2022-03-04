@@ -10,9 +10,10 @@ namespace DisneyCharacters.Models
     {
         [Key]
         public int Id { get; set; }
+
         public string Nombre { get; set; }
         public string Imagen { get; set; }
-        public List<Pelicula> Peliculas { get; set; }
+        public virtual ICollection<Pelicula> Peliculas { get; set; }
 
 
     }
