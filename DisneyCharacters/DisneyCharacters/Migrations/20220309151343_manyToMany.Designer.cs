@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DisneyCharacters.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220304195819_Init")]
-    partial class Init
+    [Migration("20220309151343_manyToMany")]
+    partial class manyToMany
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.1.21")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -120,13 +120,13 @@ namespace DisneyCharacters.Migrations
             modelBuilder.Entity("DisneyCharacters.Models.PersonajePelicula", b =>
                 {
                     b.HasOne("DisneyCharacters.Models.Pelicula", "Pelicula")
-                        .WithMany("PersonajesPelicula")
+                        .WithMany("Personajes")
                         .HasForeignKey("PeliculaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DisneyCharacters.Models.Personaje", "Personaje")
-                        .WithMany("PersonajesPelicula")
+                        .WithMany("Peliculas")
                         .HasForeignKey("PersonajeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

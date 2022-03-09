@@ -14,8 +14,19 @@ namespace DisneyCharacters.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PersonajePelicula>().HasKey(x => new { x.PeliculaId, x.PersonajeId });
+            modelBuilder.Entity<PersonajePelicula>()
+                .HasKey(x => new { x.PeliculaId, x.PersonajeId });
+            modelBuilder.Entity<PersonajePelicula>()
+                .HasOne(x => x.Personaje)
+                .WithMany(x => x.PersonajePeliculas)
+                .HasForeignKey(x => x.PersonajeId);
+            modelBuilder.Entity<PersonajePelicula>()
+                .HasOne(x => x.Pelicula)
+                .WithMany(x => x.PersonajePeliculas)
+                .HasForeignKey(x => x.PeliculaId);
             base.OnModelCreating(modelBuilder);
+
+
         }
 
         public DbSet<Personaje> Personajes { get; set; }

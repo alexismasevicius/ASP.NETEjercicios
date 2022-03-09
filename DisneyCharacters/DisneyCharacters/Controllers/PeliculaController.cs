@@ -23,13 +23,18 @@ namespace DisneyCharacters.Controllers
         [HttpGet]
         public async Task<IEnumerable<Pelicula>> Get()
         {
-            return await ctx.Peliculas.ToListAsync();
+            return await ctx.Peliculas.Include(s => s.Nombre).Include(s => s.Fecha).Include(s => s.Imagen).ToListAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
             var pelicula = await ctx.Peliculas.FindAsync(id);
+
+            var peliculaConPersonajes =
+                ctx.Peliculas.Where(x => x.Id == id);
+
+
             if (pelicula == null)
             {
                 return NotFound();
@@ -41,7 +46,7 @@ namespace DisneyCharacters.Controllers
 
         }
 
-        public async Task<IActionResult> Post(Pelicula pelicula)
+        public async Task<IActionResult> Post([FromBody]Pelicula pelicula) //FromBody=Los datos vienen desde el cuerpo de la peticion
         {
             if (!ModelState.IsValid) //valida los Data Annotation del Modelo
             {
@@ -58,6 +63,57 @@ namespace DisneyCharacters.Controllers
 
         }
 
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutPelicula(int id, Pelicula pelicula)
+        {
+            if (id != pelicula.Id)
+            {
+                return BadRequest();
+            }
+
+            ctx.Entry(pelicula).State = EntityState.Modified;
+
+            try
+            {
+                await ctx.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PeliculaExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+
+        // DELETE: api/Peliculas/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Pelicula>> DeletePelicula(int id)
+        {
+            var pelicula = await ctx.Peliculas.FindAsync(id);
+            if (pelicula == null)
+            {
+                return NotFound();
+            }
+
+            ctx.Peliculas.Remove(pelicula);
+            await ctx.SaveChangesAsync();
+
+            return pelicula;
+        }
+
+        private bool PeliculaExists(int id)
+        {
+            return ctx.Peliculas.Any(e => e.Id == id);
+        }
 
 
     }

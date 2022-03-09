@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DisneyCharacters.Migrations
 {
-    public partial class Init : Migration
+    public partial class manyToMany : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
