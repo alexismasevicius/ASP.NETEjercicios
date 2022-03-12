@@ -46,6 +46,7 @@ namespace DisneyCharacters.Controllers
 
         }
 
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody]Pelicula pelicula) //FromBody=Los datos vienen desde el cuerpo de la peticion
         {
             if (!ModelState.IsValid) //valida los Data Annotation del Modelo
