@@ -1,35 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace DisneyCharacters.Models
 {
     /// <summary>
-    /// Genero de las peliculas
+    /// Vista Simple de Pelicula
     /// </summary>
-    public class Genero
+    public class PeliculaVistaSimple
     {
         /// <summary>
-        /// Id del genero
+        /// Id de la pelicula
         /// </summary>
-        [Key]
         public int Id { get; set; }
+
         /// <summary>
-        /// NOmbre del genero
+        /// Titulo de la pelicula
         /// </summary>
-        public string Nombre { get; set; }
+        public string Titulo { get; set; }
         /// <summary>
-        /// Imagen del genero
+        /// Imagen de la pelicula
         /// </summary>
         public string Imagen { get; set; }
 
         /// <summary>
-        /// Peliculas relacionadas al genero
+        /// Fecha de la pelicula
         /// </summary>
-        public virtual ICollection<Pelicula> Peliculas { get; set; }
-
+        public DateTime Fecha { get; set; }
 
     }
 }

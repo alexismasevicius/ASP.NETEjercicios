@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DisneyCharacters.Models
 {
+    /// <summary>
+    /// Relacion muchos a muchos ENtre personajes y pelicula
+    /// </summary>
     public class PersonajePelicula
     {
 

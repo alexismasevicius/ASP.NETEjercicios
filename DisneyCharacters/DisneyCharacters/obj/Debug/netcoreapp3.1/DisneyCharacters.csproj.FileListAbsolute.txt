@@ -135,3 +135,9 @@ C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyChara
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\obj\Debug\netcoreapp3.1\DisneyCharacters.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\DisneyCharacters.xml

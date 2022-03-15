@@ -30,19 +30,10 @@ namespace DisneyCharacters.Controllers
         public async Task<ActionResult<IEnumerable<PersonajeVistaSimple>>> GetPersonajes()
         {
             List<Personaje> miLista = await ctx.Personajes.ToListAsync();
-            List<PersonajeVistaSimple> listaPersonajeSimple = new List<PersonajeVistaSimple>();
-            foreach (Personaje item in miLista)
-            {
-                PersonajeVistaSimple miPersonajeSimple = new PersonajeVistaSimple();
-                miPersonajeSimple.Imagen = item.Imagen;
-                miPersonajeSimple.Nombre = item.Nombre;
-                if(miPersonajeSimple != null)
-                {
-                    listaPersonajeSimple.Add(miPersonajeSimple);
-                }
-            }
+            List<PersonajeVistaSimple> listaPersonajeSimple = SimplificarLista(miLista);
             return listaPersonajeSimple;
         }
+
 
         /// <summary>
         /// obtiene el detalle de un personaje junto con sus peliculas asociadas
@@ -67,51 +58,47 @@ namespace DisneyCharacters.Controllers
             }
         }
         
+        /// <summary>
+        /// Busqueda de personajes segun propiedades
+        /// </summary>
+        /// <param name="name">nombre</param>
+        /// <param name="age">edad</param>
+        /// <param name="movies">peliculas</param>
+        /// <returns>OK y resultado si fue exitosa. Not found si no lo fue</returns>
         [HttpGet]
         [Route("search")]
         public async Task<IActionResult> GetPersonajesNombre(string name, int? age, int? movies)
         {
+            List<Personaje> query = new List<Personaje>();
 
             if (!string.IsNullOrEmpty(name))
             {
-                var query = await ctx.Personajes.Where(p => p.Nombre.Contains(name)).Include(p => p.PersonajePeliculas).ThenInclude(p => p.Pelicula).ToListAsync();
-                if (query == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    return Ok(query);
-                }
+                query = await ctx.Personajes.Where(p => p.Nombre.Contains(name)).Include(p => p.PersonajePeliculas).ThenInclude(p => p.Pelicula).ToListAsync();
             }
             if(age!=null)
             {
-                var query = await ctx.Personajes.Where(p => p.Edad == age).Include(p => p.PersonajePeliculas).ThenInclude(p => p.Pelicula).ToListAsync();
-                if (query == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    return Ok(query);
-                }
+                query = await ctx.Personajes.Where(p => p.Edad == age).Include(p => p.PersonajePeliculas).ThenInclude(p => p.Pelicula).ToListAsync();
             }
             if(movies!=null)
             {
                 List<PersonajePelicula> miLista = await ctx.PersonajesPeliculas.Where(x => x.PeliculaId == movies).ToListAsync();
                 var queryAux = await ctx.Personajes.ToListAsync();
-
-                List<Personaje> query = new List<Personaje>();
-
                 foreach (var item in miLista)
                 {
                     query.Add(queryAux.Find(x => x.Id == item.PersonajeId));
                 }
+            }
 
+            if (query.Count == 0)
+            {
+                return NotFound();
+            }
+            else
+            {
                 return Ok(query);
             }
 
-            return NotFound();
+            //return BadRequest();
 
         }
 
@@ -194,6 +181,30 @@ namespace DisneyCharacters.Controllers
             await ctx.SaveChangesAsync();
 
             return personaje;
+        }
+
+        
+        /// <summary>
+        /// Simplifica la lista de personajes
+        /// </summary>
+        /// <param name="miLista">Lista de personajes completa</param>
+        /// <returns>Lista simplificada</returns>
+        List<PersonajeVistaSimple> SimplificarLista(List<Personaje> miLista)
+        {
+            List<PersonajeVistaSimple> listaPersonajeSimple = new List<PersonajeVistaSimple>();
+            foreach (Personaje item in miLista)
+            {
+                PersonajeVistaSimple miPersonajeSimple = new PersonajeVistaSimple();
+                miPersonajeSimple.Id = item.Id;
+                miPersonajeSimple.Imagen = item.Imagen;
+                miPersonajeSimple.Nombre = item.Nombre;
+                if (miPersonajeSimple != null)
+                {
+                    listaPersonajeSimple.Add(miPersonajeSimple);
+                }
+            }
+            return listaPersonajeSimple;
+
         }
 
 

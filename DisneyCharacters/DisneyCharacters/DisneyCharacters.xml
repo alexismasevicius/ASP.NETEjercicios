@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DisneyCharacters</name>
+    </assembly>
+    <members>
+        <member name="T:DisneyCharacters.Controllers.PeliculaController">
+            <summary>
+            Controlador de Pelicula
+            </summary>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.Get">
+            <summary>
+            obtiene la lista de los peliculas desde la base de datos en una forma simplificada
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.Get(System.Int32)">
+            <summary>
+            obtiene una pelicula con su detalle
+            </summary>
+            <param name="id">id de la pelicula</param>
+            <returns>El detalle del personajke</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.Post(DisneyCharacters.Models.Pelicula)">
+            <summary>
+            Crea una nueva pelicula en la BD
+            </summary>
+            <param name="pelicula">pelicula a agregar</param>
+            <returns>La pelicula si se creo correctamente</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.PutPelicula(System.Int32,DisneyCharacters.Models.Pelicula)">
+            <summary>
+            Modifica una pelicula
+            </summary>
+            <param name="id">id de la pelicula a modificar</param>
+            <param name="pelicula">Pelicula nueva</param>
+            <returns>No content si OK</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.SimplificarLista(System.Collections.Generic.List{DisneyCharacters.Models.Pelicula})">
+            <summary>
+            Simplifica la vista de una lista de peliculas
+            </summary>
+            <param name="miLista">Lista de peliculas</param>
+            <returns>La lista simplificada</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.GetPersonajes">
+            <summary>
+            obtiene la lista de los personajes desde la base de datos en una forma simplificada
+            </summary>
+            <returns>Una lista simplificada de los personajes</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.GetPersonaje(System.Int32)">
+            <summary>
+            obtiene el detalle de un personaje junto con sus peliculas asociadas
+            </summary>
+            <param name="id">id del personaje</param>
+            <returns>El detalle del personaje</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.GetPersonajesNombre(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Busqueda de personajes segun propiedades
+            </summary>
+            <param name="name">nombre</param>
+            <param name="age">edad</param>
+            <param name="movies">peliculas</param>
+            <returns>OK y resultado si fue exitosa. Not found si no lo fue</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.PutPersonaje(System.Int32,DisneyCharacters.Models.Personaje)">
+            <summary>
+            Modifica un personaje en la BD
+            </summary>
+            <param name="id">id del personaje a modificar</param>
+            <param name="personaje">el personaje modificado</param>
+            <returns>400 si el id a modificar no coincide con el personaje, 404 si el id no se encuentra en la BD</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.Post(DisneyCharacters.Models.Personaje)">
+            <summary>
+            Crea un personaje en la base de datos
+            </summary>
+            <param name="personaje">el objeto personaje a crear</param>
+            <returns>200 si se creo, 400 si el modelo enviado no es valido</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.DeletePersonaje(System.Int32)">
+            <summary>
+            Elimina un personaje de la base de datos
+            </summary>
+            <param name="id">id del personaje</param>
+            <returns>el personaje eliminado</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.SimplificarLista(System.Collections.Generic.List{DisneyCharacters.Models.Personaje})">
+            <summary>
+            Simplifica la lista de personajes
+            </summary>
+            <param name="miLista">Lista de personajes completa</param>
+            <returns>Lista simplificada</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.PersonajeExists(System.Int32)">
+            <summary>
+            Verifica la existencia del personaje
+            </summary>
+            <param name="id">id del personaje</param>
+            <returns>true o false</returns>
+        </member>
+        <member name="T:DisneyCharacters.Models.Genero">
+            <summary>
+            Genero de las peliculas
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Genero.Id">
+            <summary>
+            Id del genero
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Genero.Nombre">
+            <summary>
+            NOmbre del genero
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Genero.Imagen">
+            <summary>
+            Imagen del genero
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Genero.Peliculas">
+            <summary>
+            Peliculas relacionadas al genero
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Models.Pelicula">
+            <summary>
+            Pelicula de disney
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Pelicula.Id">
+            <summary>
+            Id de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Pelicula.Nombre">
+            <summary>
+            Nombre de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Pelicula.Imagen">
+            <summary>
+            Imagen de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Pelicula.Fecha">
+            <summary>
+            Fecha de estreno de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Pelicula.Calificacion">
+            <summary>
+            Calificacion de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Pelicula.Genero">
+            <summary>
+            Genero de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Pelicula.PersonajePeliculas">
+            <summary>
+            Lista compuesta de personajes y peliculas relacionadas
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Models.PeliculaVistaSimple">
+            <summary>
+            Vista Simple de Pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PeliculaVistaSimple.Id">
+            <summary>
+            Id de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PeliculaVistaSimple.Titulo">
+            <summary>
+            Titulo de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PeliculaVistaSimple.Imagen">
+            <summary>
+            Imagen de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PeliculaVistaSimple.Fecha">
+            <summary>
+            Fecha de la pelicula
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Models.Personaje">
+            <summary>
+            Personaje de Disney
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Personaje.Id">
+            <summary>
+            Id del personaje
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Personaje.Nombre">
+            <summary>
+            Nombre del personaje
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Personaje.Imagen">
+            <summary>
+            Imagen del personaje
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Personaje.Edad">
+            <summary>
+            Edad del personaje 
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Personaje.Peso">
+            <summary>
+            Peso del personaje
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Personaje.Historia">
+            <summary>
+            Historia del personaje 
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Personaje.PersonajePeliculas">
+            <summary>
+            Listado de personajes y peliculas relacionadas
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Models.PersonajePelicula">
+            <summary>
+            Relacion muchos a muchos ENtre personajes y pelicula
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Models.PersonajeVistaSimple">
+            <summary>
+            Vista Simple del personaje
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PersonajeVistaSimple.Id">
+            <summary>
+            Id del personaje
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PersonajeVistaSimple.Nombre">
+            <summary>
+            Nombre del personaje
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PersonajeVistaSimple.Imagen">
+            <summary>
+            Imagen del personaje
+            </summary>
+        </member>
+    </members>
+</doc>

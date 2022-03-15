@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
+
 
 namespace DisneyCharacters
 {
@@ -34,6 +36,11 @@ namespace DisneyCharacters
 
             services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                { Title = "Api Personajes de Disney Para Alkemy", Version = "v1" });
+            });
 
         }
 
@@ -44,6 +51,15 @@ namespace DisneyCharacters
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            //indica la ruta para generar la configuración de swagger
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api Personajes de Disney Para Alkemy");
+            });
+
 
             app.UseHttpsRedirection();
 

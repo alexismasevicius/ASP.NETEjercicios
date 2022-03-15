@@ -9,43 +9,61 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DisneyCharacters.Controllers
 {
+    /// <summary>
+    /// Controlador de Pelicula
+    /// </summary>
     [ApiController]
     [Route("movies")]
     public class PeliculaController : ControllerBase
     {
         private readonly RepositoryContext ctx;
 
+
         public PeliculaController(RepositoryContext ctx)
         {
             this.ctx = ctx;
         }
 
+        /// <summary>
+        /// obtiene la lista de los peliculas desde la base de datos en una forma simplificada
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public async Task<IEnumerable<Pelicula>> Get()
+        public async Task<IEnumerable<PeliculaVistaSimple>> Get()
         {
-            return await ctx.Peliculas.Include(s => s.Nombre).Include(s => s.Fecha).Include(s => s.Imagen).ToListAsync();
+            List<Pelicula> miLista = await ctx.Peliculas.ToListAsync();
+            List<PeliculaVistaSimple> listaSimple = SimplificarLista(miLista);
+            return listaSimple;
+
         }
 
+        /// <summary>
+        /// obtiene una pelicula con su detalle
+        /// </summary>
+        /// <param name="id">id de la pelicula</param>
+        /// <returns>El detalle del personajke</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var pelicula = await ctx.Peliculas.FindAsync(id);
-
-            var peliculaConPersonajes =
-                ctx.Peliculas.Where(x => x.Id == id);
+            var peliculaConPersonajes = await ctx.Peliculas.Where(x => x.Id == id).Include(p => p.PersonajePeliculas).ThenInclude(p => p.Personaje).ToListAsync();
 
 
-            if (pelicula == null)
+            if (peliculaConPersonajes == null)
             {
                 return NotFound();
             }
             else
             {
-                return Ok(pelicula);
+                return Ok(peliculaConPersonajes);
             }
 
         }
 
+        /// <summary>
+        /// Crea una nueva pelicula en la BD
+        /// </summary>
+        /// <param name="pelicula">pelicula a agregar</param>
+        /// <returns>La pelicula si se creo correctamente</returns>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Pelicula pelicula) //FromBody=Los datos vienen desde el cuerpo de la peticion
         {
@@ -64,7 +82,12 @@ namespace DisneyCharacters.Controllers
 
         }
 
-
+        /// <summary>
+        /// Modifica una pelicula
+        /// </summary>
+        /// <param name="id">id de la pelicula a modificar</param>
+        /// <param name="pelicula">Pelicula nueva</param>
+        /// <returns>No content si OK</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPelicula(int id, Pelicula pelicula)
         {
@@ -94,8 +117,11 @@ namespace DisneyCharacters.Controllers
             return NoContent();
         }
 
-
-        // DELETE: api/Peliculas/5
+        /// <summary>
+        /// Elimina una pelicula
+        /// </summary>
+        /// <param name="id">id de la pelicula</param>
+        /// <returns>Si se elimino correctamente, la pelicula</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Pelicula>> DeletePelicula(int id)
         {
@@ -109,6 +135,30 @@ namespace DisneyCharacters.Controllers
             await ctx.SaveChangesAsync();
 
             return pelicula;
+        }
+
+        
+        /// <summary>
+        /// Simplifica la vista de una lista de peliculas
+        /// </summary>
+        /// <param name="miLista">Lista de peliculas</param>
+        /// <returns>La lista simplificada</returns>
+        private List<PeliculaVistaSimple> SimplificarLista(List<Pelicula> miLista)
+        {
+            List<PeliculaVistaSimple> listaSimple = new List<PeliculaVistaSimple>();
+            foreach (Pelicula item in miLista)
+            {
+                PeliculaVistaSimple miPersonajeSimple = new PeliculaVistaSimple();
+                miPersonajeSimple.Id = item.Id;
+                miPersonajeSimple.Imagen = item.Imagen;
+                miPersonajeSimple.Titulo = item.Nombre;
+                if (miPersonajeSimple != null)
+                {
+                    listaSimple.Add(miPersonajeSimple);
+                }
+            }
+            return listaSimple;
+
         }
 
         private bool PeliculaExists(int id)
