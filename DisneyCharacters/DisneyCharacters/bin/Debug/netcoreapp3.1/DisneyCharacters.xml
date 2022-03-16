@@ -29,6 +29,15 @@
             <param name="pelicula">pelicula a agregar</param>
             <returns>La pelicula si se creo correctamente</returns>
         </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.GetPeliculasBusqueda(System.String,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Realiza busquedas de peliculas en la BD de acuerdo a los parametros
+            </summary>
+            <param name="name">nombre a buscar</param>
+            <param name="idGenero">ID del genero de pelicula a buscar</param>
+            <param name="order">Orden segun FECHA de creacion. ASC para ascendiente, DESC para descendiente </param>
+            <returns>OK y resultado si fue exitosa. Not found o Bad Request si no lo fue</returns>
+        </member>
         <member name="M:DisneyCharacters.Controllers.PeliculaController.PutPelicula(System.Int32,DisneyCharacters.Models.Pelicula)">
             <summary>
             Modifica una pelicula
@@ -36,6 +45,13 @@
             <param name="id">id de la pelicula a modificar</param>
             <param name="pelicula">Pelicula nueva</param>
             <returns>No content si OK</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.DeletePelicula(System.Int32)">
+            <summary>
+            Elimina una pelicula
+            </summary>
+            <param name="id">id de la pelicula</param>
+            <returns>Si se elimino correctamente, la pelicula</returns>
         </member>
         <member name="M:DisneyCharacters.Controllers.PeliculaController.SimplificarLista(System.Collections.Generic.List{DisneyCharacters.Models.Pelicula})">
             <summary>
@@ -57,7 +73,7 @@
             <param name="id">id del personaje</param>
             <returns>El detalle del personaje</returns>
         </member>
-        <member name="M:DisneyCharacters.Controllers.PersonajesController.GetPersonajesNombre(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.GetPersonajesBusqueda(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             Busqueda de personajes segun propiedades
             </summary>

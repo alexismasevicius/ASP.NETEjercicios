@@ -14,10 +14,22 @@ namespace DisneyCharacters.Models
 
         //Esta clase tiene una clave compuesta creada con fluent api (x.PeliculaId, x.PersonajeId)
 
+        /// <summary>
+        /// Id del personaje
+        /// </summary>
         public int PersonajeId { get; set; }
-
+        /// <summary>
+        /// Id de la pelicula
+        /// </summary>
         public int PeliculaId { get; set; }
+        /// <summary>
+        /// objeto Pelicula
+        /// </summary>
         public Pelicula Pelicula { get; set; }
+
+        /// <summary>
+        /// objeto personaje
+        /// </summary>
         public Personaje Personaje { get; set; }
 
 

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GWZxv/WWqy83onlvMo4jrPygAjc9EYBp+wYfZOJE4Y6m7X74sc0hO2oBCQp0DZK2XSGIKRs7QAJwJA9PhKkqrg==",
+  "dgSpecHash": "stygKUfQTv76PheLm8NxTQj3LXOfrKnBFHfy1XXRifGxzexJ/m7tFh2PzvgVQRlw6aBcVf5AoCWymbHYBicwnA==",
   "success": true,
   "projectFilePath": "C:\\Users\\alexi\\Desktop\\ASP DOTNET\\ASP.NETEjercicios\\DisneyCharacters\\DisneyCharacters\\DisneyCharacters.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\alexi\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.0.0\\microsoft.aspnetcore.authentication.jwtbearer.3.0.0.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.0\\microsoft.aspnetcore.jsonpatch.3.1.0.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.0.nupkg.sha512",

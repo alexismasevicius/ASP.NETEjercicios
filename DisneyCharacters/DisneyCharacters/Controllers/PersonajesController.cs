@@ -10,12 +10,19 @@ using System.Text.Json;
 
 namespace DisneyCharacters.Controllers
 {
+    /// <summary>
+    /// Controller de personajes
+    /// </summary>
     [Route("characters")]
     [ApiController]
     public class PersonajesController : ControllerBase
     {
         private readonly RepositoryContext ctx;
 
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="context"></param>
         public PersonajesController(RepositoryContext context)
         {
             ctx = context;
@@ -67,7 +74,7 @@ namespace DisneyCharacters.Controllers
         /// <returns>OK y resultado si fue exitosa. Not found si no lo fue</returns>
         [HttpGet]
         [Route("search")]
-        public async Task<IActionResult> GetPersonajesNombre(string name, int? age, int? movies)
+        public async Task<IActionResult> GetPersonajesBusqueda(string name, int? age, int? movies)
         {
             List<Personaje> query = new List<Personaje>();
 
@@ -97,8 +104,6 @@ namespace DisneyCharacters.Controllers
             {
                 return Ok(query);
             }
-
-            //return BadRequest();
 
         }
 
