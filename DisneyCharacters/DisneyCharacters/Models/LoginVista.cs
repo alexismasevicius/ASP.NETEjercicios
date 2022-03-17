@@ -29,6 +29,7 @@ namespace DisneyCharacters.Models
             {
                 return BadRequest();
             }
+            return null;
         }
 
     }

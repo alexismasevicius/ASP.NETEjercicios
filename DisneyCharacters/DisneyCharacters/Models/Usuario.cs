@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace DisneyCharacters.Models
     /// <summary>
     /// Usuario de la api
     /// </summary>
-    public class Usuario
+    public partial class Usuario
     {
         /// <summary>
         /// Id del usuario
@@ -27,9 +28,11 @@ namespace DisneyCharacters.Models
         /// Contraseña del usuario
         /// </summary>
         [Required(ErrorMessage = "La clave de usuario es obligatoria")]
-        public int Clave { get; set; }
-
-        //public int Sal { get; set; }
+        public string Clave { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Sal { get; set; }
 
     }
 }

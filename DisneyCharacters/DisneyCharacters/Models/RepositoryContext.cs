@@ -29,23 +29,25 @@ namespace DisneyCharacters.Models
 
         }
         /// <summary>
-        /// 
+        /// Personajes
         /// </summary>
         public DbSet<Personaje> Personajes { get; set; }
         /// <summary>
-        /// 
+        /// Peliculas
         /// </summary>
         public DbSet<Pelicula> Peliculas { get; set; }
         /// <summary>
-        /// 
+        /// Generos
         /// </summary>
         public DbSet<Genero> Generos { get; set; }
         /// <summary>
-        /// 
+        /// PersonajesPeliculas
         /// </summary>
         public DbSet<PersonajePelicula> PersonajesPeliculas { get; set; }
-
-
+        /// <summary>
+        /// usuarios
+        /// </summary>
+        public DbSet<Usuario> Usuarios { get; set; }
 
     }
 }
