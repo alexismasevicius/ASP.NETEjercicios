@@ -141,3 +141,4 @@ C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyChara
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\obj\Debug\netcoreapp3.1\DisneyCharacters.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\DisneyCharacters.xml
+C:\Users\alexi\Desktop\ASP DOTNET\ASP.NETEjercicios\DisneyCharacters\DisneyCharacters\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

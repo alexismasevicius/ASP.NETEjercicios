@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DisneyCharacters.Models;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DisneyCharacters.Controllers
 {
@@ -15,6 +16,7 @@ namespace DisneyCharacters.Controllers
     /// </summary>
     [Route("characters")]
     [ApiController]
+    [Authorize]
     public class PersonajesController : ControllerBase
     {
         private readonly RepositoryContext ctx;

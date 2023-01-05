@@ -27,7 +27,39 @@ namespace DisneyCharacters.Controllers
             this.ctx = ctx;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            List<UsuarioVista> Usuarios = await ctx.Usuarios.Select(x => new UsuarioVista()
+            {
+                IdUsuario = x.Id,
+                Nombre = x.Nombre
+            }).ToListAsync();
+            return Ok(Usuarios);
+        }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            UsuarioVista Usuarios = await ctx.Usuarios.Where(x => x.Id == id).Select(x => new UsuarioVista()
+            {
+                IdUsuario = x.Id,
+                Nombre = x.Nombre
+            }).SingleOrDefaultAsync();
+            return Ok(Usuarios);
+        }
+
+        /// <summary>
+        /// Registrar un usuario. Envie solo Nombre de usuario y contraseña.
+        /// </summary>
+        /// <param name="usuario">el usuario a registrar</param>
+        /// <returns>Ok y el nombre del usuario</returns>
         [HttpPost]
         public async Task<IActionResult> Post (Usuario usuario)
         {

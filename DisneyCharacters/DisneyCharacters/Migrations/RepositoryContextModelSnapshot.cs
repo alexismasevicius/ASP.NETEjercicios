@@ -108,6 +108,29 @@ namespace DisneyCharacters.Migrations
                     b.ToTable("PersonajesPeliculas");
                 });
 
+            modelBuilder.Entity("DisneyCharacters.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Clave")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
+                });
+
             modelBuilder.Entity("DisneyCharacters.Models.Pelicula", b =>
                 {
                     b.HasOne("DisneyCharacters.Models.Genero", "Genero")
@@ -118,13 +141,13 @@ namespace DisneyCharacters.Migrations
             modelBuilder.Entity("DisneyCharacters.Models.PersonajePelicula", b =>
                 {
                     b.HasOne("DisneyCharacters.Models.Pelicula", "Pelicula")
-                        .WithMany("Personajes")
+                        .WithMany("PersonajePeliculas")
                         .HasForeignKey("PeliculaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DisneyCharacters.Models.Personaje", "Personaje")
-                        .WithMany("Peliculas")
+                        .WithMany("PersonajePeliculas")
                         .HasForeignKey("PersonajeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

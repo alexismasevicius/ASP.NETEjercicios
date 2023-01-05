@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DisneyCharacters.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DisneyCharacters.Controllers
 {
@@ -14,6 +15,7 @@ namespace DisneyCharacters.Controllers
     /// </summary>
     [ApiController]
     [Route("movies")]
+    [Authorize]
     public class PeliculaController : ControllerBase
     {
         private readonly RepositoryContext ctx;

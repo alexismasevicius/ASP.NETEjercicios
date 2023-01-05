@@ -4,10 +4,21 @@
         <name>DisneyCharacters</name>
     </assembly>
     <members>
+        <member name="T:DisneyCharacters.Controllers.LoginController">
+            <summary>
+            Controlador de login
+            </summary>
+        </member>
         <member name="T:DisneyCharacters.Controllers.PeliculaController">
             <summary>
             Controlador de Pelicula
             </summary>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.#ctor(DisneyCharacters.Models.RepositoryContext)">
+            <summary>
+            ctor 
+            </summary>
+            <param name="ctx">contex</param>
         </member>
         <member name="M:DisneyCharacters.Controllers.PeliculaController.Get">
             <summary>
@@ -59,6 +70,24 @@
             </summary>
             <param name="miLista">Lista de peliculas</param>
             <returns>La lista simplificada</returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PeliculaController.PeliculaExists(System.Int32)">
+            <summary>
+            Verifica si la pelicula existe
+            </summary>
+            <param name="id">id de la pelicla</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="T:DisneyCharacters.Controllers.PersonajesController">
+            <summary>
+            Controller de personajes
+            </summary>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.PersonajesController.#ctor(DisneyCharacters.Models.RepositoryContext)">
+            <summary>
+            ctor
+            </summary>
+            <param name="context"></param>
         </member>
         <member name="M:DisneyCharacters.Controllers.PersonajesController.GetPersonajes">
             <summary>
@@ -118,6 +147,41 @@
             <param name="id">id del personaje</param>
             <returns>true o false</returns>
         </member>
+        <member name="T:DisneyCharacters.Controllers.UsuariosController">
+            <summary>
+            Controlador de usuarios
+            </summary>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.UsuariosController.#ctor(DisneyCharacters.Models.RepositoryContext)">
+            <summary>
+            Ctor 
+            </summary>
+            <param name="ctx">contexto</param>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.UsuariosController.Get(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DisneyCharacters.Controllers.UsuariosController.Post(DisneyCharacters.Models.Usuario)">
+            <summary>
+            Registrar un usuario
+            </summary>
+            <param name="usuario">el usuario a registrar</param>
+            <returns>Ok y el nombre del usuario</returns>
+        </member>
+        <member name="T:DisneyCharacters.Helper.HashHelper">
+            <summary>
+            HashHelper
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Helper.HashedPassword">
+            <summary>
+            Clase hashed pass
+            </summary>
+        </member>
         <member name="T:DisneyCharacters.Models.Genero">
             <summary>
             Genero de las peliculas
@@ -141,6 +205,21 @@
         <member name="P:DisneyCharacters.Models.Genero.Peliculas">
             <summary>
             Peliculas relacionadas al genero
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Models.LoginVista">
+            <summary>
+            Vista de Login
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.LoginVista.Nombre">
+            <summary>
+            Nombre del usuario
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.LoginVista.Clave">
+            <summary>
+            Contraseña del usuario
             </summary>
         </member>
         <member name="T:DisneyCharacters.Models.Pelicula">
@@ -253,6 +332,26 @@
             Relacion muchos a muchos ENtre personajes y pelicula
             </summary>
         </member>
+        <member name="P:DisneyCharacters.Models.PersonajePelicula.PersonajeId">
+            <summary>
+            Id del personaje
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PersonajePelicula.PeliculaId">
+            <summary>
+            Id de la pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PersonajePelicula.Pelicula">
+            <summary>
+            objeto Pelicula
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.PersonajePelicula.Personaje">
+            <summary>
+            objeto personaje
+            </summary>
+        </member>
         <member name="T:DisneyCharacters.Models.PersonajeVistaSimple">
             <summary>
             Vista Simple del personaje
@@ -272,6 +371,78 @@
             <summary>
             Imagen del personaje
             </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.RepositoryContext.Personajes">
+            <summary>
+            Personajes
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.RepositoryContext.Peliculas">
+            <summary>
+            Peliculas
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.RepositoryContext.Generos">
+            <summary>
+            Generos
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.RepositoryContext.PersonajesPeliculas">
+            <summary>
+            PersonajesPeliculas
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.RepositoryContext.Usuarios">
+            <summary>
+            usuarios
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Models.Usuario">
+            <summary>
+            Usuario de la api
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Usuario.Id">
+            <summary>
+            Id del usuario
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Usuario.Nombre">
+            <summary>
+            Nombre del usuario
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Usuario.Clave">
+            <summary>
+            Contraseña del usuario
+            </summary>
+        </member>
+        <member name="P:DisneyCharacters.Models.Usuario.Sal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DisneyCharacters.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DisneyCharacters.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:DisneyCharacters.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DisneyCharacters.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            This method gets called by the runtime. Use this method to add services to the container.
+        </member>
+        <member name="M:DisneyCharacters.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         </member>
     </members>
 </doc>

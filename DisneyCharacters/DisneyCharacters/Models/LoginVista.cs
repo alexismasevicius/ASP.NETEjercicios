@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DisneyCharacters.Models
 {
+    /// <summary>
+    /// Vista de Login
+    /// </summary>
     public class LoginVista: Controller
     {
 
@@ -20,17 +23,8 @@ namespace DisneyCharacters.Models
         /// Contraseña del usuario
         /// </summary>
         [Required(ErrorMessage = "La clave de usuario es obligatoria")]
-        public int Clave { get; set; }
+        public string Clave { get; set; }
 
-        [HttpPost]
-        public async Task<IActionResult> Post(LoginVista login)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-            return null;
-        }
 
     }
 }
