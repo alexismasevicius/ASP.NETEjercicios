@@ -18,6 +18,7 @@ namespace WebApplication1.Models
         public string email { get; set; }
         public string password { get; set; }
         public Nullable<int> idState { get; set; }
+        public Nullable<int> edad { get; set; }
     
         public virtual cstate cstate { get; set; }
     }

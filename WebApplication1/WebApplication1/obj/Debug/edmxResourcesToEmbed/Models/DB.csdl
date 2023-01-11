@@ -24,6 +24,7 @@
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="idState" Type="Int32" />
+    <Property Name="edad" Type="Int32" />
     <NavigationProperty Name="cstate" Relationship="cursomvcModel.FK_users_cstate" FromRole="users" ToRole="cstate" />
   </EntityType>
   <Association Name="FK_users_cstate">

@@ -12,6 +12,7 @@
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="cursomvcModel.users">
         <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="edad" ColumnName="edad" />
           <ScalarProperty Name="idState" ColumnName="idState" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="email" ColumnName="email" />
